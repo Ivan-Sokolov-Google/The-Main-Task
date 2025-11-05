@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <h2>Добро пожаловать, {{ user.username }}!</h2>
+    <div class="button-container">
+        <a href="{% url 'schedule' %}" class="button">Расписание занятий</a>
+        <a href="{% url 'debts' %}" class="button">Задолженности</a>
+        <a href="{% url 'teachers' %}" class="button">Преподаватели</a>
+        <a href="{% url 'exams' %}" class="button">Экзамены и зачеты</a>
+        <a href="{% url 'departments' %}" class="button">Отделы университета</a>
+    </div>
+</div>
+{% endblock %}

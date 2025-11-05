@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студенческий дашборд | {% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <h1>Студенческий дашборд</h1>
+        {% if user.is_authenticated %}
+        <nav>
+            <a href="{% url 'home' %}">Главная</a>
+            <a href="{% url 'logout' %}">Выйти</a>
+        </nav>
+        {% endif %}
+    </header>
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="site-footer">
+        <p>© 2025 Студенческий дашборд</p>
+    </footer>
+</body>
+</html>
