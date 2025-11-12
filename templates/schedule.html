@@ -1,4 +1,33 @@
 {% extends 'base.html' %}
+
+{% block title %}Расписание занятий{% endblock %}
+
 {% block content %}
-<h2>Страница в разработке</h2>
+<div class="main-content">
+    <h2>Расписание занятий</h2>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th>День недели</th>
+                <th>Предмет</th>
+                <th>Аудитория</th>
+                <th>Преподаватель</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for schedule in schedules %}
+            <tr>
+                <td>{{ schedule.day }}</td>
+                <td>{{ schedule.subject }}</td>
+                <td>{{ schedule.room }}</td>
+                <td>{{ schedule.teacher.full_name }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Расписание пока пусто.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

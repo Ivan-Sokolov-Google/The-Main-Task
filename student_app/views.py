@@ -6,6 +6,11 @@ from django.views import View
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from .models import Schedule
+from .models import Exam
+
+
 class CustomLogoutView(View):
     def get(self, request):
         logout(request)
@@ -41,3 +46,11 @@ def exams_view(request):
 
 def departments_view(request):
     return render(request, 'departments.html')
+
+def schedule_view(request):
+    schedules = Schedule.objects.all().order_by('day')  # Сортировка по дню
+    return render(request, 'schedule.html', {'schedules': schedules})
+
+def exams_view(request):
+    exams = Exam.objects.all().order_by('date')  # Сортировка по дате
+    return render(request, 'exams.html', {'exams': exams})
