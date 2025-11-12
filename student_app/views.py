@@ -6,6 +6,11 @@ from django.views import View
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from .models import Teacher
+from .models import Debt
+from django.db.models import Q
+from datetime import datetime
+from .models import Department
 class CustomLogoutView(View):
     def get(self, request):
         logout(request)
@@ -31,13 +36,20 @@ def schedule_view(request):
     return render(request, 'schedule.html')
 
 def debts_view(request):
-    return render(request, 'debts.html')
+    debts = Debt.objects.all()
+    date_filter = request.GET.get('date')
+    if date_filter:
+        date = datetime.strptime(date_filter, '%Y-%m-%d')
+        debts = debts.filter(deadline=date)
+    return render(request, 'debts.html', {'debts': debts})
 
 def teachers_view(request):
-    return render(request, 'teachers.html')
+    teachers = Teacher.objects.all()
+    return render(request, 'teachers.html', {'teachers': teachers})
 
 def exams_view(request):
     return render(request, 'exams.html')
 
 def departments_view(request):
-    return render(request, 'departments.html')
+    departments = Department.objects.all()
+    return render(request, 'departments.html', {'departments': departments})
