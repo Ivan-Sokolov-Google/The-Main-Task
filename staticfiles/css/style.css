@@ -24,3 +24,113 @@
 h2, p {
     text-align: center;
 }
+
+/* Таблица преподавателей */
+.teacher-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-table th, .teacher-table td {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.teacher-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.teacher-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.teacher-table tr:hover {
+    background-color: #e6f0fa;
+}
+
+/* Форма фильтра */
+.filter-form {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    align-items: center;
+}
+
+.filter-form label {
+    font-size: 1rem;
+}
+
+.filter-form input {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.reset-button {
+    background-color: #6c757d;
+}
+
+.reset-button:hover {
+    background-color: #5a6268;
+}
+
+/* Таблица задолженностей */
+.debt-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.debt-table th, .debt-table td {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.debt-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.debt-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.debt-table tr:hover {
+    background-color: #e6f0fa;
+}
+
+/* Таблица отделов */
+.department-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.department-table th, .department-table td {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.department-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.department-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.department-table tr:hover {
+    background-color: #e6f0fa;
+}
