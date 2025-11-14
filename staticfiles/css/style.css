@@ -24,3 +24,59 @@
 h2, p {
     text-align: center;
 }
+
+/* Таблица расписания */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.schedule-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.schedule-table tr:hover {
+    background-color: #e6f0fa;
+}
+
+/* Таблица экзаменов */
+.exam-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exam-table th, .exam-table td {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.exam-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.exam-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.exam-table tr:hover {
+    background-color: #e6f0fa;
+}

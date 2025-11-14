@@ -1,4 +1,33 @@
 {% extends 'base.html' %}
+
+{% block title %}Экзамены и зачеты{% endblock %}
+
 {% block content %}
-<h2>Страница в разработке</h2>
+<div class="main-content">
+    <h2>Расписание экзаменов и зачетов</h2>
+    <table class="exam-table">
+        <thead>
+            <tr>
+                <th>Предмет</th>
+                <th>Преподаватель</th>
+                <th>Дата</th>
+                <th>Вопросы</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exam in exams %}
+            <tr>
+                <td>{{ exam.subject }}</td>
+                <td>{{ exam.teacher.full_name }}</td>
+                <td>{{ exam.date|date:"d.m.Y" }}</td>
+                <td>{{ exam.questions }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Экзамены пока не добавлены.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
