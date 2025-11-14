@@ -1,4 +1,37 @@
 {% extends 'base.html' %}
+
+{% block title %}Отделы университета{% endblock %}
+
 {% block content %}
-<h2>Страница в разработке</h2>
+<div class="main-content">
+    <h2>Контакты отделов университета</h2>
+    <table class="department-table">
+        <thead>
+            <tr>
+                <th>Название отдела</th>
+                <th>Электронная почта</th>
+                <th>Телефон</th>
+                <th>Кабинет</th>
+                <th>Время работы</th>
+                <th>Ответственный</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for department in departments %}
+            <tr>
+                <td>{{ department.name }}</td>
+                <td>{{ department.email }}</td>
+                <td>{{ department.phone }}</td>
+                <td>{{ department.room }}</td>
+                <td>{{ department.work_time }}</td>
+                <td>{{ department.employee }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">Отделы не добавлены.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

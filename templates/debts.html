@@ -1,4 +1,38 @@
 {% extends 'base.html' %}
+
+{% block title %}Задолженности{% endblock %}
+
 {% block content %}
-<h2>Страница в разработке</h2>
+<div class="main-content">
+    <h2>Задолженности студентов</h2>
+    <form method="GET" class="filter-form">
+        <label for="date">Фильтр по дате пересдачи:</label>
+        <input type="date" id="date" name="date" value="{{ request.GET.date }}">
+        <button type="submit" class="auth-button">Применить</button>
+        <a href="{% url 'debts' %}" class="auth-button reset-button">Сбросить</a>
+    </form>
+    <p>Количество задолженностей: {{ debts.count }}</p>
+    <table class="debt-table">
+        <thead>
+            <tr>
+                <th>Предмет</th>
+                <th>Преподаватель</th>
+                <th>Дата пересдачи</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for debt in debts %}
+            <tr>
+                <td>{{ debt.subject }}</td>
+                <td>{{ debt.teacher.full_name }}</td>
+                <td>{{ debt.deadline|date:"d.m.Y" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Задолженности отсутствуют.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

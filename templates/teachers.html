@@ -1,4 +1,33 @@
 {% extends 'base.html' %}
+
+{% block title %}Преподаватели{% endblock %}
+
 {% block content %}
-<h2>Страница в разработке</h2>
+<div class="main-content">
+    <h2>Преподаватели</h2>
+    <table class="teacher-table">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Кафедра</th>
+                <th>Электронная почта</th>
+                <th>Номер телефона</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for teacher in teachers %}
+            <tr>
+                <td>{{ teacher.full_name }}</td>
+                <td>{{ teacher.department }}</td>
+                <td>{{ teacher.email }}</td>
+                <td>{{ teacher.phone }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Преподаватели не добавлены.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
